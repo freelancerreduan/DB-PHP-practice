@@ -14,8 +14,10 @@
 
 
 
-//   Conncet Databage with My-SQL (Simple Code For Connect DB)
 
+  // ======================== Step 1 Way=========================
+
+//   Conncet Databage with My-SQL (Simple Code For Connect DB)
 // $conn = new mysqli('localhost','root','','test'); // DB-Connection SQL-Command Main ('domin-name','parmetion','password','Database-Name')
 // if ($conn -> connect_error) {
 //     die('Connect faild : '.$conn-> connect_error);
@@ -33,7 +35,7 @@
 
 
 
-
+  // ======================== Step 2 Way=========================
 // Fresh Code for database sent to data from user this website 
 // Simple Change this code for workable ... use and Injoy your life  Simple
 
@@ -59,5 +61,35 @@
 }
 
 
+
+
+
+
+
+
+  // ======================== Step 3 Way=========================
+
+  // $conn = mysqli_connect($hostName, $userName , $password , $dbName);  // jaikhane jei variable bosano ase ,oijai just oigola direk dilei hobe,,,
+  $conn = mysqli_connect("localhost","root" , "" , "firstdb");
+  if (!$conn) {
+    die("Connection Faild , So Very Sad!!! ");
+  }
+
+
+
+
+
+
+  // ======================== Step 4 Way=========================
+  $hostName = 'localhost'; // Domin Name hear
+  $userName = 'root'; // hosting username
+  $password =''; // hosing password
+  $dbName = 'firstdb'; // database name hear
+
+  // connect tha database
+  // $conn = mysqli_connect($hostName, $userName , $password , $dbName);
+  $conn = mysqli_connect($hostName, $userName , $password , $dbName);
+
+  // echo "Data Submited Successfullu";
 
 ?>
