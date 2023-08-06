@@ -92,4 +92,51 @@
 
   // echo "Data Submited Successfullu";
 
+
+
+ // ======================== Step 5 Best Way=========================
+// Database Connection Best Way...... connection page incluid
+class  dbConn{
+    private $conn;
+
+    public function __construct()
+    {
+        $dbhost = 'localhost';
+        $dbuser = 'root';
+        $dbpass = "";
+        $dbname = 'app_php';
+
+        $this->conn = mysqli_connect($dbhost,$dbuser,$dbpass,$dbname);
+
+        if (!$this->conn) {
+            die("Connection Faild !! Please Insure Your Code");
+
+        }else{
+            echo 'Connection Succesfull ';
+        }
+    }
+}
+// this code incluid jei page connect korbo oi page add dite hobe.
+//<?php
+//include_once("function.php");
+//$obConnect = new dbConn();
+//?>
+
+
+
+
+
+
+
 ?>
+
+
+
+
+
+
+
+
+
+
+
