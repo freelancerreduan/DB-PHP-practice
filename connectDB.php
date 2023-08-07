@@ -94,11 +94,27 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
  // ======================== Step 5 Best Way=========================
-// Database Connection Best Way...... connection page incluid
-class  dbConn{
+// Database Connection BEST Way...... Connection page incluid
+
+// Create a Simple Class
+ class crudApp{
+    
+    // private data Connection header with $conn;
     private $conn;
 
+    // publice funtion __construct() for localhost connection information hear for database
     public function __construct()
     {
         $dbhost = 'localhost';
@@ -106,21 +122,38 @@ class  dbConn{
         $dbpass = "";
         $dbname = 'app_php';
 
-        $this->conn = mysqli_connect($dbhost,$dbuser,$dbpass,$dbname);
+        // $this->conn added all variable hear
+        $this->conn= mysqli_connect($dbhost,$dbuser,$dbpass,$dbname);
 
-        if (!$this->conn) {
-            die("Connection Faild !! Please Insure Your Code");
-
-        }else{
-            echo 'Connection Succesfull ';
+        // Condition Chak for connection right ase kina ? jodi nah thake tahole Error asbe..
+        if(!$this->conn){
+            die("Connection Faild!");
         }
     }
-}
-// this code incluid jei page connect korbo oi page add dite hobe.
-//<?php
-//include_once("function.php");
-//$obConnect = new dbConn();
-//?>
+
+    // this funtion for variable a Store All Data ,, ait input fild a theke name ar sahajje dhorte hobe....( add_data )ati funtion name hear.. AND $data ati dara ARGUMENT Pass korte hoi,,
+    public function add_data($data){
+        $name = $data['name'];
+        $phone = $data['phone'];
+        $email = $data['email'];
+        
+        // img file upload hear ...
+        $img = $_FILES['img']['name'];
+        $tmp_name =$_FILES['img']['tmp_name'];
+        move_uploaded_file($tmp_name , "upload/".$img);
+
+        // Query For INSERT DATA from Database
+        $query = "INSERT INTO student(name,phone,email,img) VALUE ('$name',$phone,'$email','$img')";
+
+        // Condition Chack hear for connection Database....
+        if(mysqli_query($this->conn, $query)){
+            return "Connection Succesfully";
+        }
+    }
+ }
+// CONNECTION SUCCESSFULLY END HRAR======================================
+
+
 
 
 
